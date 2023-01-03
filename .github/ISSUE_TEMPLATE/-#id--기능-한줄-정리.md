@@ -1,6 +1,6 @@
 ---
 name: "[#id] 기능 한줄 정리"
-about: issue 등록을 위한 공통 템플릿
+about: 'team-L : issue 등록을 위한 공통 템플릿'
 title: ''
 labels: ''
 assignees: ''
