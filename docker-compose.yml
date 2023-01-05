@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  backend:
+    build: 
+      context: ./backend
+      args:
+        DJANGO_ALLOWED_HOSTS:"*"
+        DJANGO_CORS_ORIGIN_WHITELIST:"*"
+        DJANGO_SECRET_KEY:"*"
+    command: python manage.py runserver 0.0.0.0:8000
+    ports:
+      - 8000:8000
+    volumes:
+      - ./settings/dev/.env.dev
+    #depends_on:
+      #- db
