@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 
 import os
 from pathlib import Path
+#import pymysql  
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -19,7 +20,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
-
+#pymysql.install_as_MySQLdb()
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv('SECRET_KEY','django-insecure-nmldttx&-j37!v=$1^mgi*!$&a8qz7x*b4ol@6#&zk_h3k76')
 
@@ -85,7 +86,7 @@ DATABASES = {
         'NAME': os.environ.get('SQL_DATABASE', os.path.join(BASE_DIR, 'fruitDB')),
         'USER': os.environ.get('SQL_USER', 'user_f'),
         'PASSWORD': os.environ.get('SQL_PASSWORD', '1234'),
-        'HOST': os.environ.get('SQL_HOST', 'localhost'),
+        'HOST': os.environ.get('SQL_HOST', '127.0.0.1'),
         'PORT': os.environ.get('SQL_PORT', '3306'),
     }
 }
