@@ -15,12 +15,14 @@ ENV DJANGO_CORS_ORIGIN_WHITELIST $DJANGO_CORS_ORIGIN_WHITELIST
 WORKDIR /backend
 COPY requirements.txt /backend/
 
-#RUN apt-get update && apt-get install -y curl  #우분투 환경이면 넣어야할듯???
-
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 RUN pip install Pillow
-RUN apk update
-RUN apk add --virtual build-deps gcc python3-dev musl-dev 
-#RUN pip install mysqlclient
+RUN apk update && apk add --no-cache --virtual bash gcc musl-dev linux-headers jpeg-dev zlib-dev mariadb-dev libffi-dev
+#RUN apk update
+
+#RUN apk add mysql mysql-client
+#여기까지 에러 없음
+RUN pip install mysqlclient
+
 COPY . /backend/

@@ -82,7 +82,8 @@ WSGI_APPLICATION = "backend.wsgi.application"
 
 DATABASES = {
     "default": {
-        'ENGINE': os.environ.get('SQL_ENGINE', 'mysql.connector.django'),
+        #'ENGINE': os.environ.get('SQL_ENGINE', 'mysql.connector.django'),
+        'ENGINE': os.environ.get('SQL_ENGINE', 'django.db.backends.mysql'),
         'NAME': os.environ.get('SQL_DATABASE', os.path.join(BASE_DIR, 'fruitDB')),
         'USER': os.environ.get('SQL_USER', 'user_f'),
         'PASSWORD': os.environ.get('SQL_PASSWORD', '1234'),
