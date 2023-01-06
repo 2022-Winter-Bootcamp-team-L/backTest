@@ -5,7 +5,7 @@ services:
     image: mysql:8.0
     container_name: mysql
     ports:
-      - 3306:3306 # HOST:CONTAINER
+      - 3304:3304 # HOST:CONTAINER
     environment:
       MYSQL_ROOT_PASSWORD: "${DB_ROOT_PASSWORD}"
       MYSQL_DATABASE: "${DB_DATABASE}"
@@ -16,7 +16,8 @@ services:
       - --character-set-server=utf8mb4
       - --collation-server=utf8mb4_unicode_ci
     volumes:
-      - ./mysql/data:/var/lib/mysql  #이거?
+     - ../db/data:/var/lib/mysql
+      - ../db/data/conf.d:/etc/mysql/conf.d
     
   backend:
     build:
